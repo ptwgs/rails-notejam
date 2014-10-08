@@ -39,7 +39,9 @@ gem 'bcrypt', '~> 3.1.2'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+group :development do
+  gem 'capistrano', '~> 3.2.0'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
