@@ -40,7 +40,7 @@ namespace :deploy do
   task :start do
     on roles(:app), in: :sequence, wait: 5 do
       within "#{fetch(:deploy_to)}/current" do
-        execute :bundle, :exec, "thin -C config/thin.#{fetch(:stage)}.yml -d start"
+        execute :bundle, :exec, "thin -C config/thin.#{fetch(:stage)}.yml start"
       end
     end
   end
@@ -49,7 +49,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       within "#{fetch(:deploy_to)}/current" do
-        execute :bundle, :exec, "thin -C config/thin.#{fetch(:stage)}.yml -d restart"
+        execute :bundle, :exec, "thin -C config/thin.#{fetch(:stage)}.yml restart"
       end
     end
   end
