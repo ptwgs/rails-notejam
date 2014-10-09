@@ -36,11 +36,21 @@ set :repo_url, 'git@github.com:ptwgs/rails-notejam.git'
 
 namespace :deploy do
 
+  desc 'Start application'
+  task :start do
+    on roles(:app), in: :sequence, wait: 5 do
+      within "#{fetch(:deploy_to)}/current" do
+        execute :bundle, :exec, "thin -C config/thin.#{fetch(:stage)}.yml -d start"
+      end
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+      within "#{fetch(:deploy_to)}/current" do
+        execute :bundle, :exec, "thin -C config/thin.#{fetch(:stage)}.yml -d restart"
+      end
     end
   end
 

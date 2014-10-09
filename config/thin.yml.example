@@ -1,0 +1,14 @@
+---
+chdir: /var/www/notejam/current
+environment: production
+address: 127.0.0.1
+port: 5000
+timeout: 30
+log: /var/www/notejam/shared/log/thin.log
+pid: /var/www/notejam/shared/tmp/pids/thin.pid
+max_conns: 1024
+max_persistent_conns: 100
+require: []
+wait: 30
+servers: 3
+daemonize: true

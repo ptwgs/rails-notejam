@@ -35,8 +35,8 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.2'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# Use thin as the app server
+gem 'thin'
 
 # Use Capistrano for deployment
 group :development do
