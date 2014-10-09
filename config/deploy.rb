@@ -23,7 +23,7 @@ set :repo_url, 'git@github.com:ptwgs/rails-notejam.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/thin.production.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{log tmp/pids public/assets}
