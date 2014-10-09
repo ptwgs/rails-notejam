@@ -38,6 +38,7 @@ set :ssh_options, {
 }
 
 set :deploy_to, "/home/vagrant/htdocs/#{fetch(:application)}"
+set :keep_releases, 2
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.1.2'
