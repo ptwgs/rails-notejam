@@ -6,7 +6,6 @@
 
 server '10.9.8.7', roles: [:app, :web, :db], user: 'vagrant'
 
-
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
@@ -32,3 +31,10 @@ server '10.9.8.7', roles: [:app, :web, :db], user: 'vagrant'
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+set :ssh_options, {
+  forward_agent: true,
+  keys: ["~/.ssh/id_rsa"]
+}
+
+set :deploy_to, "/home/vagrant/htdocs/#{fetch(:application)}"
